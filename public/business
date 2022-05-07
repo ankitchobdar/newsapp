@@ -1,0 +1,9 @@
+<Route path="/business" element={<News pageSize="8" apiKey="989b25346b214037b4e40cb0e424b403" country="in" category="business"/>} />
+<Route path="/entertainment" element={<News pageSize="8" apiKey="989b25346b214037b4e40cb0e424b403" country="in" category="entertainment"/>} />
+<Route path="/general" element={<News pageSize="8" apiKey="989b25346b214037b4e40cb0e424b403" country="in" category="general"/>} />
+<Route path="/health" element={<News pageSize="8" apiKey="989b25346b214037b4e40cb0e424b403" country="in" category="health"/>} />
+<Route path="/science" element={<News pageSize="8" apiKey="989b25346b214037b4e40cb0e424b403" country="in" category="science"/>} />
+<Route path="/sports" element={<News pageSize="8" apiKey="989b25346b214037b4e40cb0e424b403" country="in" category="sports"/>} />
+<Route path="/technology" element={<News pageSize="8" apiKey="989b25346b214037b4e40cb0e424b403" country="in" category="technology"/>} />
+
+<Route path="/" element={<News pageSize="8" apiKey="989b25346b214037b4e40cb0e424b403" country="in" category="sports"/>} />
