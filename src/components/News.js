@@ -22,6 +22,7 @@ export class News extends Component {
   }
 
   constructor(props){
+    console.log("constructor called")
     super(props);
     this.state = {
       articles: [],
@@ -33,18 +34,23 @@ export class News extends Component {
   }
 
   async updateNews() {
+    this.props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=989b25346b214037b4e40cb0e424b403&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-
     this.setState({loading: true});
     let data = await fetch(url);
+    this.props.setProgress(30);
     let parsedData = await data.json(); 
+    this.props.setProgress(70);
     this.setState({articles: parsedData.articles, 
-      totalResults: parsedData.totalResults, 
+      totalResults: parsedData.totalResults,
     });
+    console.log(this.state.page);
+    this.props.setProgress(100);
   }
 
   //runs post render method
   async componentDidMount() {
+    console.log("componentDidMount called")
     this.updateNews();
   }
 
@@ -84,8 +90,8 @@ export class News extends Component {
         >
           <div className="container">
             <div className="row">
-              {this.state.articles.map((element)=>{
-                return <div key={element.url} className="col md-4">
+              {this.state.articles.map((element, index)=>{
+                return <div key={index} className="col md-4">
                 <NewsItem 
                   title={element.title?element.title: ""} 
                   description={element.description?element.description: ""} 
